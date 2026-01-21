@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batuhan Bayatlı | Hizmetler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            
+            --bg-gradient: linear-gradient(-45deg, #c471ed, #12c2e9, #f64f59, #12c2e9);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-main: #1D1D1F;
+            --text-sec: #515154;
+            --accent: #0071E3;
+            --radius: 32px;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, minmax(240px, auto));
+            gap: 24px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 10;
+        }
+
+        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; color: #000; }
+        h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 5px; }
+        h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 5px; }
+        p { font-size: 0.95rem; color: var(--text-sec); font-weight: 500; line-height: 1.5; margin-top: 5px; }
+        .sub { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-sec); font-weight: 700; opacity: 0.7; margin-bottom: 15px; display: block; }
+
+        
+        .profile-img-container {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .card-profile:hover .profile-img { transform: scale(1.1); }
+
+        
+        .card-profile { grid-column: span 2; grid-row: span 2; }
+
+        .card-cv {
+            grid-column: span 1;
+            background: #0f0f11; 
+            color: #fff;
+        }
+        .card-cv p, .card-cv .sub { color: #86868b; }
+        .card-cv:hover { border-color: #333; }
+        .icon-circle { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: auto; font-size: 1.2rem; }
+
+        .card-web { grid-column: span 1; }
+
+        
+        
+        
+        .card-agency {
+            grid-column: span 1;
+            background: linear-gradient(135deg, #0071E3, #4facfe); 
+            color: white;
+            border: none;
+        }
+        .card-agency p, .card-agency .sub { color: rgba(255,255,255,0.8); }
+        .agency-icon { font-size: 2rem; margin-bottom: 10px; }
+
+        
+        .card-corporate {
+            grid-column: span 1;
+            background: linear-gradient(135deg, #434343, #000000); 
+            color: white;
+            border: none;
+        }
+        .card-corporate p, .card-corporate .sub { color: rgba(255,255,255,0.7); }
+        .corp-icon { font-size: 2rem; margin-bottom: 10px; }
+
+
+        .card-strategy { grid-column: span 1; }
+        .card-mentor { grid-column: span 1; }
+
+        .card-contact {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #2c3e50, #000000);
+            color: white;
+        }
+        .card-contact p, .card-contact .sub { color: rgba(255,255,255,0.7); }
+        .arrow-icon { font-size: 2.5rem; transition: transform 0.3s; }
+        .card-contact:hover .arrow-icon { transform: translate(5px, -5px); }
+
+        .btn-connect {
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,113,227,0.3);
+            transition: 0.3s;
+        }
+        .btn-connect:hover { background-color: #005bb5; transform: scale(1.05); }
+
+        
+        @media (max-width: 900px) {
+            .grid-container { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .card-profile, .card-cv, .card-web, .card-agency, .card-corporate, .card-strategy, .card-mentor, .card-contact {
+                grid-column: span 1;
+                grid-row: auto;
+                min-height: 240px;
+            }
+            .profile-img-container { width: 80px; height: 80px; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+
+        <div class="card card-profile">
+            <div>
+                <div class="profile-img-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEzvXjrWaVQLA/profile-displayphoto-scale_400_400/B4DZsEf5rKJoAg-/0/1765307030818?e=1770854400&v=beta&t=xCEHSe08445IFLTQTYFKElZfayeR-uCacBuRF8wdPTI" alt="Batuhan Bayatlı" class="profile-img" id="myPhoto">
+                </div>
+
+                <h1>Batuhan Bayatlı.</h1>
+                <p style="font-size: 1.1rem; color: #444; font-weight: 600;">Financial Analyst & InsurTech Developer | Bridging Finance with Data Strategy | Python, SQL & Web | 🇯🇵 🇹🇷</p>
+                <p style="margin-top: 15px; max-width: 420px;">
+                    Bankacılık uzmanlığı ve kodlama yeteneğiyle hibrit çözümler. 
+                    Sıradan bir yazılımcı değil, iş süreçlerini optimize eden stratejik bir ortak.
+                </p>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/batuhanbayatlı/" target="_blank" class="btn-connect">LinkedIn'de Bağlanın ›</a>
+            </div>
+        </div>
+
+        <div class="card card-cv" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <span class="sub">Best Seller</span>
+            <h3>ATS Uyumlu CV</h3>
+            <div style="margin-top: auto;">
+                <p>İK botlarına takılmayan, %100 mülakat garantili modern şablonlar.</p>
+                <div class="icon-circle">📄</div>
+            </div>
+        </div>
+
+        <div class="card card-web" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <span class="sub">Web Architecture</span>
+            <h3>Premium Web</h3>
+            <div style="margin-top: auto;">
+                <p>Prestij inşa ediyoruz. Apple estetiğinde kişisel ve kurumsal siteler.</p>
+                <div class="icon-circle" style="background: rgba(0,0,0,0.05); color: #333;">🖥️</div>
+            </div>
+        </div>
+
+        <div class="card card-agency" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <div class="agency-icon">⚡️</div>
+            <span class="sub" style="color: rgba(255,255,255,0.8);">Acente Çözümleri</span>
+            <h3>Dijital Acente 2.0</h3>
+            <p style="margin-top: auto;">
+                Müşteri kazanım otomasyonu ve dijital süreç yönetimi ile klasik acenteliği aşın.
+            </p>
+        </div>
+
+        <div class="card card-corporate" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <div class="corp-icon">🏢</div>
+            <span class="sub" style="color: rgba(255,255,255,0.7);">Kurumsal & InsurTech</span>
+            <h3>API Entegrasyon</h3>
+            <p style="margin-top: auto;">
+                BankSigOS altyapısı ve sigorta şirketleri için özel API çözümleri.
+            </p>
+        </div>
+
+        <div class="card card-strategy" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <span class="sub">Data & Strategy</span>
+            <h3>Veri Analizi</h3>
+            <p>Excel ve Python ile karmaşık verileri "karar aldıran" raporlara çeviriyorum.</p>
+        </div>
+
+        <div class="card card-mentor" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <span class="sub">Mentorship</span>
+            <h3>Kariyer Yolu</h3>
+            <p>Bankacılık/Sigortacılık öğrencileri için 1:1 sınav ve kariyer taktikleri.</p>
+        </div>
+
+        <div class="card card-contact" onclick="window.open('https://www.linkedin.com/in/batuhanbayatlı/','_blank')">
+            <div style="display: flex; justify-content: space-between;">
+                <div>
+                    <span class="sub">Project Inquiry</span>
+                    <h2 style="font-size: 2.2rem;">Bir fikriniz mi var?</h2>
+                </div>
+                <span class="arrow-icon">↗</span>
+            </div>
+            <p style="margin-top: auto; max-width: 85%;">
+                FinTech projeleri veya kurumsal dönüşüm için beklemeyin. 
+                <strong style="color: white; border-bottom: 1px solid white;">Hemen mesaj atın.</strong>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        
+        const seninFotografLinkin = 'https://media.licdn.com/dms/image/v2/D4D03AQEzvXjrWaVQLA/profile-displayphoto-scale_400_400/B4DZsEf5rKJoAg-/0/1765307030818?e=1770854400&v=beta&t=xCEHSe08445IFLTQTYFKElZfayeR-uCacBuRF8wdPTI'; 
+        document.getElementById('myPhoto').src = seninFotografLinkin;
+    </script>
+
+</body>
+</html>
